@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header">
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <!--        <link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}" rel="stylesheet">-->
+        <!--        <script th:src="@{/jQuery/jquery.min.js}"></script>-->
+        <!--        <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>-->
+        <!--        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">-->
+        <!--        <script th:src="@{/webjars
+        /jquery/1.11.1/jquery.min.js}"></script>-->
+        <!--        <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>-->
+        <link th:href="@{/static/layui/css/layui.css}" rel="stylesheet">
+        <script th:src="@{/static/layui/layui.js}"></script>
+        <link rel="stylesheet" href="animates/animate.css">
+        <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./iconfont.css">
+    </div>
+    <style>
+        #login-img {
+            height: 80px;
+            padding-left: -100px;
+        }
+
+        input[type=text] {
+            width: 150px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 40px;
+            font-size: 16px;
+            background-color: #37aaff;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            margin-top: 6%;
+            margin-left: 5%;
+            font-family: 华文楷体;
+            font-style: normal;
+        }
+
+        input[type=text]:focus {
+            width: 40%;
+        }
+
+        #Sbox {
+            width: 350px;
+            height: 78px;
+            float: right;
+        }
+
+        #S1 {
+            float: right;
+            margin-top: 7%;
+            margin-right: 25%;
+            width: 80px;
+            font-family: 华文楷体;
+            border-radius: 100px;
+        }
+
+        .body {
+            width: 800px;
+            height: 437px;
+        }
+
+        .top {
+            width: 100%;
+            height: 45px;
+            background-color: #9F9F9F;
+            margin-bottom: -1px;
+        }
+
+        .sel_1 {
+            float: left;
+            margin-right: 50px;
+            height: 100%;
+            cursor: pointer;
+            padding-left: 130px;
+            border-radius: 50px;
+            border-color: #009688;
+        }
+
+        .main_1, .main_2 {
+            width: 97%;
+            height: 91%;
+            background-color: #c0c4cc;
+        }
+
+        .main_2 {
+            display: none;
+        }
+
+        .sel_1:hover {
+            font-family: 华文琥珀;
+            color: #01AAED;
+            border-color: #01AAED;
+        }
+
+        html {
+            width: 100%;
+            height: 20%;
+        }
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            height: 100px;
+        }
+
+        .rain {
+            display: block;
+        }
+
+        embed {
+            display: block;
+        }
+
+        #foot {
+            width: 100%;
+            height: 1000px;
+            border: #FD482C solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="layui-col-xs12">
+        <ul class="layui-nav layui-bg-blue">
+            <img src="img/lg.png" id="login-img" class="animated infinite bounce">
+            <li class="layui-nav-item"><a href="">个人资料</a></li>
+            <li class="layui-nav-item layui-this"><a href="">首页</a></li>
+            <li class="layui-nav-item"><a href="">会员服务</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:">撩一撩</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">美眉</a></dd>
+                    <dd><a href="">小哥哥</a></dd>
+                    <dd><a href="">情感调查问卷</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">聊天</a></li>
+            <div id="Sbox">
+                <form>
+                    <input type="text" name="search" placeholder="来" class="animated animated lightSpeedIn">
+                    <button type="button" class="layui-btn layui-btn-radius,animated animated jackInTheBox" id="S1">搜索
+                    </button>
+                </form>
+            </div>
+        </ul>
+
+<!--&lt;!&ndash;        测试&ndash;&gt;-->
+<!--        <div class="row">-->
+<!--            <div class="col-xs-6 pull_left">-->
+<!--                <div class="form-group">-->
+<!--                    <input class="form-control" type="tel" id="verify_input" placeholder="请输入验证码" maxlength="4">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-xs-6 pull_left">-->
+<!--                <a href="javascript:void(0);" rel="external nofollow" title="点击更换验证码">-->
+<!--                    <img id="imgVerify" src="" alt="更换验证码" height="36" width="100%" onclick="getVerify(this);">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        &ndash;&gt;-->
+
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md6">
+            <div class="body">
+                <div class="top">
+                    <div class="sel_1">
+                        <button type="button" class="layui-btn layui-btn-radius">登录</button>
+                    </div>
+                    <div class="sel_1">
+                        <button type="button" class="layui-btn layui-btn-radius">注册</button>
+                    </div>
+                </div>
+
+                <div class="main_1">
+                    <form class="layui-form layui-form-pane" action="/login">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">账号:</label>
+                            <div class="layui-input-block;animated animated bounceInRight">
+                                <input type="text" name="id" autocomplete="off" value="id" placeholder="请输入账号"
+                                       class="layui-input"
+                                       style="margin-left:0%;width: 500px;border-radius: 10px;
+                                       border-color: #c0c4cc;padding:0px 0px 0px 0px;background-color: white;
+">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码:</label>
+                            <div class="layui-input-inline;animated animated bounceInRight">
+                                <input type="password" name="password" value="password" placeholder="请输入密码"
+                                       autocomplete="off"
+                                       class="layui-input"
+                                       style="margin-left:0%;width: 500px;border-radius: 10px;border-color: #c0c4cc">
+                            </div>
+                        </div>
+                        <div class="animated animated bounceInRight" style="margin-left: 300px">
+                            <button class="layui-btn" lay-submit="" lay-filter="demo2"
+                                    style="text-align: center;border-radius: 50px">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="main_2">
+                    <form class="layui-form" action="../register" lay-filter="example">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">账号:</label>
+                            <div class="layui-input-block;animated animated bounceInRight">
+                                <input type="text" name="id" lay-verify="title"
+                                       autocomplete="off" placeholder="请输入注册账号" class="layui-input"
+                                       style="border-color: #5FB878;width: 400px;">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码:</label>
+                            <div class="layui-input-block;animated animated bounceInRight">
+                                <input type="password" name="password" placeholder="请输入注册密码"
+                                       autocomplete="off" class="layui-input"
+                                       style="border-color: #5FB878;width: 400px;border-radius: 200px;margin-left: 35px"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别:</label>
+                            <div class="layui-input-block;animated animated bounceInRight" style="margin-left: 250px">
+                                <input type="radio" name="sex" value="man" title="男" checked="">
+                                <input type="radio" name="sex" value="woman" title="女" id="">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-left:29px;border-color:white">
+                            <label class="layui-form-label">兴趣爱好:</label>
+                            <div class="layui-input-block;animated animated bounceInRight" style="margin-left:180px">
+                                <select name="habit" lay-filter="aihao">
+                                    <option value=""></option>
+                                    <option value="write">写作</option>
+                                    <option value="read">阅读</option>
+                                    <option value="game">游戏</option>
+                                    <option value="music">音乐</option>
+                                    <option value="gogogo">旅行</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block;animated animated bounceInRight" style="margin-left: 270px">
+                                <button class="layui-btn" lay-submit="" lay-filter="demo1"
+                                        style="border-radius: 25px;border-color: #93D1FF">注册
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-carousel" id="test10">
+                <div carousel-item="">
+                    <div><img src="img/w1.jpg" style="width: 100%;height: 100%"></div>
+                    <div><img src="img/w2.jpg" style="width: 100%;height: 100%"></div>
+                    <div><img src="img/w4.jpg" style="width: 100%;height: 100%"></div>
+                    <div><img src="img/m2.jpg" style="width: 100%;height: 100%"></div>
+                    <div><img src="img/m3.jpg" style="width: 100%;height: 100%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs3">
+            <canvas class="rain"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    });
+</script>
+
+<script>
+    layui.use(['carousel', 'form'], function () {
+        var carousel = layui.carousel
+            , form = layui.form;
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            , width: '778px'
+            , height: '440px'
+            , interval: 5000
+        });
+    });
+</script>
+<script>
+    $(".sel_1").bind("click", function () {
+        if (this.innerText == "登录") {
+            $(".main_2").hide();
+            $(".main_1").show(200);
+        } else {
+            $(".main_1").hide();
+            $(".main_2").show(200);
+        }
+    })
+</script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form
+            , layer = layui.layer
+            , layedit = layui.layedit
+            , laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length < 3) {
+                    return '标题至少要有3个字符晒';
+                }
+                if (value.length > 7) {
+                    return '账号长度不能大于7晒'
+                }
+            }
+            , pass: [
+                /^[\S]{3,10}$/
+                , '密码必须3到10位，且不能出现空格'
+            ]
+            , content: function (value) {
+                layedit.sync(editIndex);
+            }
+        });
+
+        //监听指定开关
+        form.on('switch(switchTest)', function (data) {
+            layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        监听提交
+        form.on('submit(demo1)', function (data) {
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            return false;
+        });
+
+    });
+</script>
+
+<script>
+    var oCanvas = document.querySelector(".rain"); //获取元素rain
+    var w, h; //定义变量w ,h
+    var aRain = []; //用来存放新生成的雨滴
+
+    ~~function () { //自执行函数:不用调用自己执行 把canvas和整个屏幕无缝贴合
+        window.onresize = arguments.callee; //随着浏览器的变化宽和高都变化
+        w = window.innerWidth; //获取浏览器的宽
+        h = window.innerHeight; //获取浏览器的高
+        oCanvas.width = w; //把值赋给canvas
+        oCanvas.height = h; //把值赋给canvas
+    }();
+
+    function random(min, max) { //定义随机函数
+        return Math.random() * (max - min) + min; //返回想要的任意的值
+    }
+
+    var canCon = oCanvas.getContext("2d"); //创建一个2d画笔
+
+    Rain.prototype = { //this 指代当前函数
+        init: function () { //雨滴的基本参数
+            this.x = random(0, w); //雨滴横坐标
+            this.y = 0; //纵坐标
+            this.w = random(1.6, 3); //雨滴的 宽度 1.6px 到 2.5px
+            this.h = random(8, 15); //雨滴的 长度8px 到 15px
+            this.color = "#3ff"; //颜色
+            this.vy = random(5.0, 3.3); //下降速度
+            this.vr = random(0.5, 1.5); //绽放速度
+            this.ground = random(0.8 * h, 0.9 * h); //雨滴绽放的位置
+            this.r = this.w / 2; //圆的半径
+        },
+        draw: function () { //把基本参数变化成雨滴效果
+            if (this.y < this.ground) //如果雨滴y坐标小于绽放位置,就一直下落
+            {
+                canCon.beginPath(); //抬笔
+                canCon.fillStyle = this.color; //用画笔蘸颜色画雨滴
+                canCon.fillRect(this.x, this.y, this.w, this.h); //画矩形区域左上角的坐标 矩形的宽 高
+            } else //绽放的圆形区域
+            {
+                canCon.beginPath(); //抬笔 雨滴停止下落
+                canCon.strokeStyle = "rgba(50,250,250,0.96)"; //空心画笔 rgba() rgb是颜色  a是透明度
+                canCon.arc(this.x, this.y, this.r, 0, Math.PI * 2); //画圆形 圆心坐标 半径 画多少(弧度制)
+                canCon.stroke(); //下笔作画
+            }
+
+        },
+        move: function () { //移动函数:设置怎么移动
+
+            if (this.y < this.ground) //如果雨滴的y坐标小于定义的地面高度  则雨滴往下移动
+            {
+                this.y += this.vy; //让每个雨滴下降速度不同
+            } else //如果大于  就绽放
+            {
+                if (this.r < 100) //绽放半径
+                {
+                    this.r += this.vr; //让每个雨滴绽放速度不同
+                } else {
+                    this.init(); //循环雨滴:重新设置雨滴,重头再来 循环
+                }
+
+            }
+
+            this.draw(); //调用draw函数
+        }
+    };
+    function Rain() {
+    } //雨滴的模板
+    //创建num个雨滴
+    function createRain(num) { //参数为创建多少雨滴
+        for (let i = 0; i < num; i++) //let 为立执行
+        {
+            setTimeout(function () { //创建num个雨滴的定时器
+                var rain = new Rain(); //创建雨滴对象 创建什么样的雨滴 : 调用init函数 draw函数
+                rain.init();
+                rain.draw();
+                aRain.push(rain); //把雨滴放在aRain里边, 目的是 循环他
+            }, 200 * i); //时间200*i目的是为了让每个雨滴下落时间不同  单位为毫秒
+
+        }
+    }
+
+    setInterval(function () { //下落运动的定时器
+        canCon.fillStyle = "rgba(0,0,0,0.04)"; //遮盖层,透明度递减,让画的矩形看起来更像雨滴
+        canCon.fillRect(0, 0, w, h); //画矩形
+        for (var item of aRain) //遍历num个雨滴
+        {
+            item.move(); //把遍历后的雨滴都执行move函数 运动起来
+        }
+    }, 1000 / 90); //单位为毫秒
+
+
+    createRain(200); //方法入口  下多少雨滴
+</script>
+<script>
+    //获取验证码
+    function getVerify(obj){
+        obj.src = httpurl + "/sys/getVerify?"+Math.random();
+    }
+</script>
+</html>
